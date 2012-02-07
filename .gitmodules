@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-python-syntax"]
+	path = .vim/bundle/vim-python-syntax
+	url = https://github.com/vim-scripts/python.vim--Vasiliev.git

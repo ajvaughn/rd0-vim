@@ -169,7 +169,7 @@
     cmap w!! w !sudo tee % >/dev/null
 
     " Toggle line numbers with <F2>
-    nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+    nnoremap <silent><F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " }
 
 " Functions {

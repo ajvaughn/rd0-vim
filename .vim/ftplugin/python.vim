@@ -24,11 +24,19 @@
     set textwidth=79
 " }
 
+" Key Maps {
+    nnoremap <buffer> <silent> <F3> :w<CR>:!python %<CR>
+" }
+
 " Plugins {
     " SuperTab {
         set omnifunc=pythoncomplete#Complete
         set completeopt=menuone,longest,preview
 
         let g:SuperTabDefaultCompletionType = "context"
+    " }
+
+    " PyFlakes {
+        let g:pyflakes_use_quickfix = 0
     " }
 " }

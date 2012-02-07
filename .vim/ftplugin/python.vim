@@ -25,4 +25,10 @@
 " }
 
 " Plugins {
+    " SuperTab {
+        set omnifunc=pythoncomplete#Complete
+        set completeopt=menuone,longest,preview
+
+        let g:SuperTabDefaultCompletionType = "context"
+    " }
 " }

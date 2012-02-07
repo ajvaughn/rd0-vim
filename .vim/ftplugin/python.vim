@@ -7,6 +7,11 @@
     filetype indent on
 " }
 
+" Folding {
+    set foldmethod=indent
+    set foldlevel=99
+" }
+
 " Formatting {
     set tabstop=8
     set expandtab
@@ -16,4 +21,5 @@
     set autoindent
     set smarttab
     set formatoptions=croql
+    set textwidth=79
 " }

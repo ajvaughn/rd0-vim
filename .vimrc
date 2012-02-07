@@ -35,6 +35,8 @@
 
     set autochdir " Always switch to the directory of the current file.
 
+    scriptencoding utf-8
+
     set shortmess+=filmnrxoOtT " Abbreviation of messages to avoid 'Hit ENTER' prompts
     set viewoptions=folds,options,cursor,unix,slash " Consistency between Windows and UNIX
     set virtualedit=onemore " Allow cursor beyond last character.
@@ -68,7 +70,7 @@
         set showcmd " Show partial commands in the status line and selected region in visual mode.
     endif
 
-    if has('status_line')
+    if has('statusline')
         set laststatus=2
 
         " Awesome status line.

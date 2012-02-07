@@ -23,3 +23,6 @@
     set formatoptions=croql
     set textwidth=79
 " }
+
+" Plugins {
+" }

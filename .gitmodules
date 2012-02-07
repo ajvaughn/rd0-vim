@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/vim-python-syntax"]
 	path = .vim/bundle/vim-python-syntax
 	url = https://github.com/vim-scripts/python.vim--Vasiliev.git
+[submodule ".vim/bundle/pep8"]
+	path = .vim/bundle/pep8
+	url = https://github.com/vim-scripts/pep8.git

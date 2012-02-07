@@ -82,7 +82,7 @@
 
     set backspace=indent,eol,start " Expected backspace functionality
     set linespace=0 " No extra spaces between rows
-    set nu " Line numbers on
+    set number " Line numbers on
     set showmatch " Show matching brackets.
     set incsearch " Use incremental search.
     set hlsearch " Highlight search terms.
@@ -165,8 +165,12 @@
 
     " Write the file when sudo is forgotten.
     cmap w!! w !sudo tee % >/dev/null
+
+    " Toggle line numbers with <F2>
+    nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " }
 
+" Functions {
 function! InitializeDirectories()
     let separator = '.'
     let parent = $HOME
@@ -197,3 +201,4 @@ function! InitializeDirectories()
     endfor
 endfunction
 call InitializeDirectories()
+" }

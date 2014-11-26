@@ -9,37 +9,27 @@
     " Basics {
         set nocompatible " This must be the first line.
         set background=dark " Assume a dark background.
+        scriptencoding utf-8
     " }
 
-    " Windows Compatibility {
-        if has('win32') || has('win64')
-            set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-        endif
-    " }
+    " Vundle {
+        filetype off
+        set rtp+=~/.vim/bundle/Vundle.vim/
+        call vundle#begin()
 
-    " Pathogen {
-        call pathogen#infect() " Add everything under .vim/bundle to the runtimepath.
-        call pathogen#helptags()
+        Plugin 'gmarik/Vundle.vim'
+        Plugin 'altercation/vim-colors-solarized'
+        Plugin 'tpope/vim-fugitive'
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'klen/python-mode'
+
+        call vundle#end()
     " }
 " }
 
 " General {
-    set background=dark
-
-    if !has('win32' ) && ! has('win64')
-        set term=$TERM " Make arrow keys and others work.
-    endif
-
-    filetype plugin indent on " Automatic file type detection
-    syntax on " Syntax highlighting
-
     set autochdir " Always switch to the directory of the current file.
 
-    scriptencoding utf-8
-
-    set shortmess+=filmnrxoOtT " Abbreviation of messages to avoid 'Hit ENTER' prompts
-    set viewoptions=folds,options,cursor,unix,slash " Consistency between Windows and UNIX
-    set virtualedit=onemore " Allow cursor beyond last character.
     set history=1000 " Save up to 1000 actions in history.
     set spell " Turn on spell checking.
 
@@ -55,33 +45,19 @@
 " }
 
 " UI {
-    colorscheme solarized " Use the solarized colorscheme.
+    " Color Scheme {
+        set background=dark
+        if has('win32unix')
+            let g:solarized_termcolors=16
+            let g:solarized_termtrans=1
+        endif
+        colorscheme solarized
+    " }
 
-    set tabpagemax=15 " Show only 15 tabs.
-    set showmode " Display the current mode.
+    filetype plugin indent on " Automatic file type detection
+    syntax on " Syntax highlighting
 
-    set cursorline " Highlight the current line.
-    hi cursorline guibg=#333333 " Highlight color of the current line
-    hi CursorColumn guibg=#333333 " Highlight the cursor.
-
-    if has('cmdline_info')
-        set ruler " Show the ruler.
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-        set showcmd " Show partial commands in the status line and selected region in visual mode.
-    endif
-
-    if has('statusline')
-        set laststatus=2
-
-        " Awesome status line.
-        set statusline=%<%f\ " Filename
-        set statusline+=%w%h%m%r " Options
-        set statusline+=%{fugitive#statusline()} " Git
-        set statusline+=\ [%{&ff}/%Y] " File type
-        set statusline+=\ [%{getcwd()}] " Current directory
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file navigation information
-    endif
-
+    set virtualedit=onemore " Allow cursor beyond last character.
     set backspace=indent,eol,start " Expected backspace functionality
     set linespace=0 " No extra spaces between rows
     set number " Line numbers on
@@ -91,8 +67,6 @@
     set winminheight=0 " Allow windows to use 0 line height.
     set ignorecase " Case insensitive search
     set smartcase " Case sensitive search when upper case search terms used
-    set wildmenu " Show list instead of just completing.
-    set wildmode=list:longest,full " Command <Tab> completion, list matches, then longest common part, then all
     set whichwrap=b,s,h,l,<,>,[,] " Backspace and cursor keys to wrap
     set scrolljump=5 " Scroll five lines when the cursor leaves the screen.
     set scrolloff=3 " Keep a minimum of 3 lines above and below the cursor.
@@ -112,26 +86,12 @@
     set pastetoggle=<F12> " Use same indentation on pastes.
 
     " Remove trailing spaces
-    autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    " autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 " }
 
 " Key Maps {
     " Change the mapleader to ,
     let mapleader = ','
-
-    " Eliminate common typos.
-    nnoremap ; :
-    cmap W w
-    cmap WQ wq
-    cmap wQ wq
-    cmap Q q
-    cmap Tabe tabe
-
-    " Quick movement in tabs and windows
-    map <C-J> <C-W>j<C-W>_
-    map <C-K> <C-W>k<C-W>_
-    map <C-L> <C-W>l<C-W>_
-    map <C-H> <C-W>h<C-W>_
 
     " Go to next row on wrapped lines when using j and k instead of going to the next line in the file.
     nnoremap j gj
@@ -170,6 +130,9 @@
 
     " Toggle line numbers with <F2>
     nnoremap <silent><F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+    " <F1> toggles NerdTree
+    noremap <silent><F1> :NERDTreeToggle<CR>
 " }
 
 " Functions {

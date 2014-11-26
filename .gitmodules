@@ -1,24 +1,3 @@
-[submodule ".vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/vim-python-syntax"]
-	path = .vim/bundle/vim-python-syntax
-	url = https://github.com/vim-scripts/python.vim--Vasiliev.git
-[submodule ".vim/bundle/pep8"]
-	path = .vim/bundle/pep8
-	url = https://github.com/vim-scripts/pep8.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/pydoc"]
-	path = .vim/bundle/pydoc
-	url = https://github.com/fs111/pydoc.vim.git
-[submodule ".vim/bundle/git"]
-	path = .vim/bundle/git
-	url = https://github.com/tpope/vim-git.git
-[submodule ".vim/bundle/pyflakes-pathogen"]
-	path = .vim/bundle/pyflakes-pathogen
-	url = https://github.com/mitechie/pyflakes-pathogen.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
